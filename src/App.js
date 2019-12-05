@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import { apiEndpoint } from "./prismic-configuration";
 import { Help, Preview, NotFound } from "./pages";
 import Page from "./pages/Page";
-
+import "./App.scss";
 /**
  * Main application componenet
  */
