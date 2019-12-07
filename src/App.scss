@@ -1,29 +1,43 @@
 @charset "utf-8";
 
 // Import a Google Font
-@import url("https://fonts.googleapis.com/css?family=Nunito:400,700");
+@import url("https://fonts.googleapis.com/css?family=Ubuntu:400,400i,700,700i&display=swap");
 
 // Set your brand colors
-$purple: #8a4d76;
-$pink: #fa7c91;
-$brown: #757763;
-$beige-light: #d0d1cd;
-$beige-lighter: #eff0eb;
+$black: #222222;
+$white: #ffffff;
+$blue: #1f72ff;
+$dark-grey: #ccc;
 
 // Update Bulma's global variables
-$family-sans-serif: "Nunito", sans-serif;
-$grey-dark: $brown;
-$grey-light: $beige-light;
-$primary: $purple;
-$link: $pink;
+$family-sans-serif: "Ubuntu", sans-serif;
+$size-1: 6rem;
+$size-2: 3.75rem;
+$size-3: 3rem;
+$size-4: 2.125rem;
+$size-5: 1.5rem;
+$size-6: 1.25rem;
+$size-7: 0.875rem;
+$subtitle-size: 1rem;
+
+$grey-dark: $black;
+$grey-light: $black;
+$primary: $blue;
+$link: $blue;
 $widescreen-enabled: false;
 $fullhd-enabled: false;
 
 // Update some of Bulma's component variables
-$body-background-color: $beige-lighter;
-$control-border-width: 2px;
+$body-background-color: $white;
+$control-border-width: 1px;
 $input-border-color: transparent;
 $input-shadow: none;
+
+// Buttons
+$radius-small: 0px;
+$button-padding-vertical: 2em;
+$button-padding-horizontal: 2.5rem;
+$button-border-color: $grey-dark;
 
 // Import only what you need from Bulma
 @import "../node_modules/bulma/sass/utilities/_all.sass";
@@ -32,6 +46,43 @@ $input-shadow: none;
 @import "../node_modules/bulma/sass/elements/container.sass";
 @import "../node_modules/bulma/sass/elements/title.sass";
 @import "../node_modules/bulma/sass/form/_all.sass";
+@import "../node_modules/bulma/sass/form/input-textarea.sass";
+@import "../node_modules/bulma/sass/components/_all.sass";
 @import "../node_modules/bulma/sass/components/navbar.sass";
+@import "../node_modules/bulma/sass/components/breadcrumb.sass";
 @import "../node_modules/bulma/sass/layout/hero.sass";
 @import "../node_modules/bulma/sass/layout/section.sass";
+
+// Start My default UI
+
+// Temporary
+body {
+  padding: 2em;
+  height: 2000px;
+}
+
+/////////////////
+
+.button {
+  border-radius: $radius-small;
+  text-transform: uppercase;
+  font-size: $size-7;
+}
+a.button.is-outlined {
+  outline: 1px solid #bbb;
+  outline-offset: -1px;
+  background: transparent;
+  transition: all 0.2s ease-in;
+
+  &:hover {
+    background: rgba(223, 223, 223, 0.2);
+  }
+}
+
+.is-hovered {
+  border: 1px solid $dark-grey;
+}
+
+nav a.is-rounded {
+  padding: 0;
+}
