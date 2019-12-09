@@ -57,8 +57,7 @@ $button-border-color: $grey-dark;
 
 // Temporary
 body {
-  padding: 2em;
-  height: 2000px;
+  box-sizing: border-box;
 }
 
 /////////////////

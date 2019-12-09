@@ -1,9 +1,8 @@
 import React, { Fragment } from "react";
 import { Helmet } from "react-helmet";
-import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import { apiEndpoint } from "./prismic-configuration";
-import { Help, Preview, NotFound } from "./pages";
-import Page from "./pages/Page";
+import { NotFound, Home } from "./pages";
 import "./App.scss";
 /**
  * Main application componenet
@@ -21,15 +20,11 @@ const App = props => {
           src={`//static.cdn.prismic.io/prismic.js?repo=${repoName}&new=true`}
         />
       </Helmet>
-      <BrowserRouter>
-        <Switch>
-          <Redirect exact from="/" to="/help" />
-          <Route exact path="/help" component={Help} />
-          <Route exact path="/preview" component={Preview} />
-          <Route exact path="/page/:uid" component={Page} />
-          <Route component={NotFound} />
-        </Switch>
-      </BrowserRouter>
+
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route component={NotFound} />
+      </Switch>
     </Fragment>
   );
 };
