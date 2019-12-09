@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { RichText } from "prismic-reactjs";
-import { client, linkResolver } from "../prismic-configuration";
-import NotFound from "./NotFound";
+import { client, linkResolver } from "../../prismic-configuration";
+import NotFound from "../NotFound";
 
-const Gallery = ({ match }) => {
+const AboutUs = ({ match }) => {
   const [doc, setDocData] = useState(null);
   const [notFound, toggleNotFound] = useState(false);
 
@@ -13,7 +13,7 @@ const Gallery = ({ match }) => {
   useEffect(() => {
     const fetchData = async () => {
       // We are using the function to get a document by its UID
-      const result = await client.getByUID("gallery", uid);
+      const result = await client.getSingle("about_us");
 
       if (result) {
         // We use the State hook to save the document
@@ -38,7 +38,7 @@ const Gallery = ({ match }) => {
         <h1>{RichText.asText(doc.data.main_title)}</h1>
         <h3>{RichText.asText(doc.data.sub_title)}</h3>
         {/* This is how to render a Rich Text field into your template as HTML */}
-        {/* <RichText render={doc.data.description} linkResolver={linkResolver} /> */}
+        <RichText render={doc.data.over_text} linkResolver={linkResolver} />
       </div>
     );
   } else if (notFound) {
@@ -47,4 +47,4 @@ const Gallery = ({ match }) => {
   return null;
 };
 
-export default Gallery;
+export default AboutUs;
