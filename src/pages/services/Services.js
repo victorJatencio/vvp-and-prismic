@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { RichText } from "prismic-reactjs";
-import { client } from "../../prismic-configuration";
-import { Link } from "react-router-dom";
+import { client, linkResolver } from "../../prismic-configuration";
 import NotFound from "../NotFound";
 
-const Home = ({ match }) => {
+const Services = ({ match }) => {
   const [doc, setDocData] = useState(null);
   const [notFound, toggleNotFound] = useState(false);
 
@@ -14,7 +13,7 @@ const Home = ({ match }) => {
   useEffect(() => {
     const fetchData = async () => {
       // We are using the function to get a document by its UID
-      const result = await client.getSingle("home");
+      const result = await client.getSingle("services");
 
       if (result) {
         // We use the State hook to save the document
@@ -38,14 +37,8 @@ const Home = ({ match }) => {
         {/* This is how to render a Rich Text field as plain text */}
         <h1>{RichText.asText(doc.data.main_title)}</h1>
         <h3>{RichText.asText(doc.data.sub_title)}</h3>
-
-        <Link
-          className="button is-primary"
-          to={doc.data.cta.url}
-          alt="Book Us Now"
-        >
-          Book Us Now
-        </Link>
+        {/* This is how to render a Rich Text field into your template as HTML */}
+        <RichText render={doc.data.over_text} linkResolver={linkResolver} />
       </div>
     );
   } else if (notFound) {
@@ -54,4 +47,4 @@ const Home = ({ match }) => {
   return null;
 };
 
-export default Home;
+export default Services;

@@ -1,12 +1,12 @@
 import React, { Fragment } from "react";
 import { Helmet } from "react-helmet";
-import { Route, Switch, Redirect } from "react-router-dom";
+import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import { apiEndpoint } from "./prismic-configuration";
-import { NotFound, Home, AboutUs, Gallery, Contact } from "./pages";
+import { NotFound, Home, AboutUs, Gallery, Services, Contact } from "./pages";
 import "./App.scss";
-/**
- * Main application componenet
- */
+
+import Header from "./components/header/header";
+
 const App = props => {
   const repoNameArray = /([^/]+)\.cdn.prismic\.io\/api/.exec(apiEndpoint);
   const repoName = repoNameArray[1];
@@ -21,13 +21,19 @@ const App = props => {
         />
       </Helmet>
 
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/about_us" component={AboutUs} />
-        <Route path="/gallery" component={Gallery} />
-        <Route path="/contact" component={Contact} />
-        <Route component={NotFound} />
-      </Switch>
+      <Router>
+        <div>
+          <Header />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/about_us" component={AboutUs} />
+            <Route path="/gallery" component={Gallery} />
+            <Route path="/services" component={Services} />
+            <Route path="/contact" component={Contact} />
+            <Route component={NotFound} />
+          </Switch>
+        </div>
+      </Router>
     </Fragment>
   );
 };
