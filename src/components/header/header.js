@@ -1,11 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import Utilitybar from "../utilitybar/utilitybar";
 // import { ReactComponent as Logo } from "../../assets/favicon.png";
 import "./header.scss";
 
 const Header = () => (
   <div className="header">
+    <Utilitybar />
     <nav
       className="navbar is-black"
       role="navigation"
