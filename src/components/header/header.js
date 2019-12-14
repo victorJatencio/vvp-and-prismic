@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Utilitybar from "../utilitybar/utilitybar";
+
 // import { ReactComponent as Logo } from "../../assets/favicon.png";
 import "./header.scss";
 
@@ -12,7 +13,7 @@ const Header = () => (
       role="navigation"
       aria-label="main navigation"
     >
-      <div className="container navbar-brand level">
+      <div className="container navbar-brand level is-fluid">
         <Link className="logo-container navbar-item level-left" to="/">
           vvp
         </Link>

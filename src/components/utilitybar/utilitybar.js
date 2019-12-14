@@ -5,7 +5,7 @@ import "./utilitybar.scss";
 
 const Utilitybar = () => (
   <div className="navbar utilitybar">
-    <div className="container level">
+    <div className="container level is-fluid">
       <div className="navbar-menu level-left">
         <Link to="tel:1-973-555-1234" className="navbar-item">
           <i className="fas fa-phone"></i>

@@ -1,0 +1,25 @@
+.footer {
+  color: #fff;
+
+  .quick-footer-links {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mini-footer {
+    border-top: 0.25px solid rgba(255, 255, 255, 0.7);
+    margin-top: 2em;
+
+    .copy-right {
+      font-size: small;
+      color: rgba(255, 255, 255, 0.7);
+      margin: auto;
+    }
+
+    .footer-social {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: flex-end;
+    }
+  }
+}

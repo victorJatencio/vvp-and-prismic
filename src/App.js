@@ -6,6 +6,7 @@ import { NotFound, Home, AboutUs, Gallery, Services, Contact } from "./pages";
 import "./App.scss";
 
 import Header from "./components/header/header";
+import Footer from "./components/footer/footer";
 
 const App = props => {
   const repoNameArray = /([^/]+)\.cdn.prismic\.io\/api/.exec(apiEndpoint);
@@ -32,6 +33,7 @@ const App = props => {
             <Route path="/contact" component={Contact} />
             <Route component={NotFound} />
           </Switch>
+          <Footer />
         </div>
       </Router>
     </Fragment>

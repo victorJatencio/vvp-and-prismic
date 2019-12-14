@@ -27,6 +27,8 @@ $primary: $blue;
 $link: $blue;
 $widescreen-enabled: false;
 $fullhd-enabled: false;
+$footer-background-color: $black;
+$footer-padding: 3rem 1.5rem 2rem;
 
 // Update some of Bulma's component variables
 $body-background-color: $white;
@@ -46,6 +48,7 @@ $button-border-color: $grey-dark;
 @import "../node_modules/bulma/sass/utilities/_all.sass";
 @import "../node_modules/bulma/sass/base/_all.sass";
 @import "../node_modules/bulma/sass/elements/button.sass";
+@import "../node_modules/bulma/sass/elements/_all.sass";
 @import "../node_modules/bulma/sass/elements/container.sass";
 @import "../node_modules/bulma/sass/elements/title.sass";
 @import "../node_modules/bulma/sass/form/_all.sass";
@@ -55,6 +58,10 @@ $button-border-color: $grey-dark;
 @import "../node_modules/bulma/sass/components/breadcrumb.sass";
 @import "../node_modules/bulma/sass/layout/hero.sass";
 @import "../node_modules/bulma/sass/layout/section.sass";
+@import "../node_modules/bulma/sass/layout/_all.sass";
+@import "../node_modules/bulma/sass/layout/footer.sass";
+@import "../node_modules/bulma/sass/grid/_all.sass";
+@import "../node_modules/bulma/sass/grid/columns.sass";
 
 // Start My default UI
 
