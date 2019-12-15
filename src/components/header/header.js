@@ -1,54 +1,85 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { client } from "../../prismic-configuration";
 import Utilitybar from "../utilitybar/utilitybar";
 
-// import { ReactComponent as Logo } from "../../assets/favicon.png";
+import NotFound from "../../pages/NotFound";
+
 import "./header.scss";
 
-const Header = () => (
-  <div className="header">
-    <Utilitybar />
-    <nav
-      className="navbar is-black"
-      role="navigation"
-      aria-label="main navigation"
-    >
-      <div className="container navbar-brand level is-fluid">
-        <Link className="logo-container navbar-item level-left" to="/">
-          vvp
-        </Link>
-        <Link
-          className="navbar-burger burger"
-          to="/"
-          aria-label="menu"
-          aria-expanded="false"
-          data-target="navbarBasicExample"
-        >
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-        </Link>
+const Header = () => {
+  const [doc, setDocData] = useState(null);
+  const [notFound, toggleNotFound] = useState(false);
 
-        <div id="navbarBasicExample" className="navbar-menu level-right">
-          <Link className="navbar-item" to="/">
-            Home
-          </Link>
-          <Link className="navbar-item" to="/about_us">
-            About Us
-          </Link>
-          <Link className="navbar-item" to="/gallery">
-            Gallery
-          </Link>
-          <Link className="navbar-item" to="/services">
-            Services
-          </Link>
-          <Link className="navbar-item" to="/contact">
-            Contact
-          </Link>
-        </div>
+  // Get the page document from Prismic
+  useEffect(() => {
+    const fetchData = async () => {
+      // We are using the function to get a single document
+      const result = await client.getSingle("header");
+
+      if (result) {
+        // We use the State hook to save the document
+        return setDocData(result);
+      } else {
+        // Otherwise show an error message
+        console.warn(
+          "Page document not found. Make sure it exists in your Prismic repository"
+        );
+        toggleNotFound(true);
+      }
+    };
+    fetchData();
+  }); // Skip the Effect hook if the UID hasn't changed
+
+  if (doc) {
+    return (
+      <div className="header">
+        <Utilitybar />
+        <nav
+          className="navbar is-black"
+          role="navigation"
+          aria-label="main navigation"
+        >
+          <div className="container navbar-brand level is-fluid">
+            <a href="/" className="logo-container level-left">
+              <img src={doc.data.nav_logo.url} alt={doc.data.nav_logo.alt} />
+            </a>
+            <a
+              className="navbar-burger burger"
+              href="/"
+              aria-label="menu"
+              aria-expanded="false"
+              data-target="navbarBasicExample"
+            >
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+            </a>
+
+            <div id="navbarBasicExample" className="navbar-menu level-right">
+              <a href="/" className="navbar-item">
+                Home
+              </a>
+              <a href="/about_us" className="navbar-item">
+                About Us
+              </a>
+              <a href="/gallery" className="navbar-item">
+                Gallery
+              </a>
+              <a href="/services" className="navbar-item">
+                Services
+              </a>
+              <a href="/contact" className="navbar-item">
+                Contact
+              </a>
+            </div>
+          </div>
+        </nav>
       </div>
-    </nav>
-  </div>
-);
+    );
+  } else if (notFound) {
+    return <NotFound />;
+  }
+  return null;
+};
 
 export default Header;

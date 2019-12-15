@@ -1,8 +1,23 @@
 .utilitybar {
   background-color: #000;
 }
-.utilitybar .level-left .navbar-item {
-  font-size: 14px;
+
+.level-right {
+  a.gen-link {
+    margin-right: 1em;
+  }
+}
+a.gen-link {
+  font-size: 1em;
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+
+  &:hover {
+    color: #1f72ff;
+  }
 
   span.phone-info {
     margin-left: 10px;

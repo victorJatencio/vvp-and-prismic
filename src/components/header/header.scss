@@ -1,3 +1,11 @@
 .navbar-brand a.navbar-item:hover {
   background-color: #151515;
 }
+
+a.logo-container {
+  width: 173px;
+
+  img {
+    max-height: 3.75rem;
+  }
+}

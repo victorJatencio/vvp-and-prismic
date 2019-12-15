@@ -1,9 +1,27 @@
 .footer {
   color: #fff;
 
+  .footer-logo {
+    max-width: 255px;
+  }
+
+  .footer-link {
+    color: #fff;
+
+    &:hover {
+      color: #1f72ff;
+    }
+  }
+
   .quick-footer-links {
     display: flex;
     flex-direction: column;
+    color: #fff;
+    text-align: center;
+
+    div {
+      padding: 5px 0;
+    }
   }
 
   .mini-footer {
