@@ -13,6 +13,9 @@
     "react-helmet": "^5.2.1",
     "react-load-script": "0.0.6",
     "react-router-dom": "^5.1.2",
+    "react-video-cover": "^1.2.2",
+    "react-youtube": "^7.9.0",
+    "video-react": "^0.14.1",
     "whatwg-fetch": "^3.0.0"
   },
   "devDependencies": {

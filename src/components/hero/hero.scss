@@ -1,0 +1,14 @@
+.hero-banner {
+  padding: 2em;
+  min-height: 440px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+
+  .hero-inner {
+    text-align: center;
+    color: #fff;
+  }
+}

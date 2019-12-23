@@ -4,6 +4,9 @@ import { client } from "../../prismic-configuration";
 import { Link } from "react-router-dom";
 import NotFound from "../NotFound";
 
+import VideoBackground from "../../components/videobackground/VideoBackground";
+import Hero from "../../components/hero/Hero";
+
 const Home = ({ match }) => {
   const [doc, setDocData] = useState(null);
   const [notFound, toggleNotFound] = useState(false);
@@ -33,19 +36,33 @@ const Home = ({ match }) => {
   if (doc) {
     return (
       <div className="page">
-        {/* This is how to get an image into your template */}
         {/* <img src={doc.data.image.url} alt={doc.data.image.alt} /> */}
-        {/* This is how to render a Rich Text field as plain text */}
-        <h1>{RichText.asText(doc.data.main_title)}</h1>
-        <h3>{RichText.asText(doc.data.sub_title)}</h3>
+        <Hero>
+          <VideoBackground videoUrl={doc.data.video.url} />
+          <div className="container is-fluid">
+            <div className="hero-inner">
+              <div className="important-content">
+                <h2 className="is-size-2">
+                  {RichText.asText(doc.data.main_title)}
+                </h2>
+                <h4 className="is-size-4">
+                  {RichText.asText(doc.data.sub_title)}
+                </h4>
 
-        <Link
-          className="button is-primary"
-          to={doc.data.cta.url}
-          alt="Book Us Now"
-        >
-          Book Us Now
-        </Link>
+                <div className="cta-section">
+                  <Link
+                    className="button is-primary"
+                    to={doc.data.cta.url}
+                    alt="Book Us Now"
+                  >
+                    Book Us Now
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Hero>
+        <div>And here comes another div...</div>
       </div>
     );
   } else if (notFound) {
