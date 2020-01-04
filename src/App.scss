@@ -127,3 +127,24 @@ h3 {
   color: $blue;
   font-size: 3em;
 }
+
+@media screen and (max-width: 768px) {
+  .events {
+    flex-direction: column;
+
+    .gridColumn {
+      flex: 1 1;
+      display: flex;
+
+      .item-1 {
+        background-color: #fa7066;
+        height: auto;
+        flex-grow: 1;
+      }
+    }
+
+    .gridItems {
+      flex-direction: column;
+    }
+  }
+}

@@ -8,6 +8,7 @@ import "./Home.scss";
 
 import VideoBackground from "../../components/videobackground/VideoBackground";
 import Hero from "../../components/hero/Hero";
+import EventsComponent from "../../components/events_component/EventsComponent";
 
 const Home = ({ match }) => {
   const [doc, setDocData] = useState(null);
@@ -201,6 +202,7 @@ const Home = ({ match }) => {
         </div>
         <div className="custom-section">
           <div>
+            <EventsComponent />
             <div>
               <div className="preview-item">
                 <h3>Events</h3>
